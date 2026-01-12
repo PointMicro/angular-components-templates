@@ -3,12 +3,34 @@
   <div>
     <h2>{{ product().name }}</h2>
     <p>{{ product().description }}</p>
-    <p>Part Type: {{ product().category }}</p>
+    <p>
+      
+      Part Type: 
+      @switch (product().category) {
+        @case ('heads') {
+          Head
+        }
+        @case ('bases') {
+          Base
+        }
+        @case ('arms') {
+          Arm
+        }
+        @case ('torsos') {
+          Torso
+        }
+      } 
+    
+    
+    
+    
+    </p>
     <p>
       Available Inventory: {{ availableInventory() }}
         @if (availableInventory() === 1){<span class="pill red">Last in stock</span>}
         @else if (availableInventory() > 5){<span class="pill green">Buy now!</span>}
-        @else if (availableInventory() < 1) {<span class="pill">OUT OF STOCK</span>}
+        @else if (availableInventory() >1 && availableInventory() <= 5){<span class="pill yellow">Low stock</span>}
+        @else {<span class="pill">OUT OF STOCK</span>}
 
 
     

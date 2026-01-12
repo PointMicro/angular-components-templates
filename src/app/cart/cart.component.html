@@ -1,8 +1,22 @@
+<!-- new variable to hide the checkout and the cart buttons  -->
+@let hasCartItems = cartItems().length > 0;
+
+
 <h1 class="header">Your Cart</h1>
+@if(hasCartItems) {
+  <button (click)="checkout.scrollIntoView({behavior : 'smooth'})">Proceed to Checkout</button>
+
+}
 <ul>
   @for (product of cartItems(); track product.id) {
   <li>
     <bot-cart-item [product]="product" />
   </li>
-  }
+  } @empty { <h2> You have no items in your cart!</h2>} <!-- add a message here and it will display when empty-->
 </ul>
+<span #checkout>
+@if(hasCartItems) { 
+<button  #checkout class="cta">Checkout</button> <!-- Add a template reference variavle in order for the -->
+
+}
+</span>

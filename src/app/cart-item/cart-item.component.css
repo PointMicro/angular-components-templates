@@ -42,3 +42,13 @@ button.cta {
   text-decoration: line-through;
   font-size: 18px;
 }
+
+
+button.cta {
+
+  width:100%
+}
+
+h2 {
+  text-align: center;
+}

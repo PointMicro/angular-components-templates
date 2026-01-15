@@ -1,7 +1,10 @@
 <ul>
-  @for (product of products; track product.id) {
+  @for (product of products; track product.id; let idx = $index) { <!-- @for needs to have a track identifier to help anguar uniquely identify each item in the list-->
   <li>
+    <div>Index: {{idx}}</div>
     <bot-product-details [product]="product" />
   </li>
   }
 </ul>
+
+<!-- use a track clause (the id part to uniwuely identify, and its also more efficient)-->
